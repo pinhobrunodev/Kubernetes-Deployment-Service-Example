@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-dp
+  labels:
+    app: api-app
+    type: api
+spec:
+  template:
+    metadata:
+      name: api-pod
+      labels:
+        app: api-app
+        type: api
+    spec:
+      containers:
+        - name: demo-api-container
+          image: pinhobrunodev/demo:0.0.1-SNAPSHOT
+  selector:
+    matchLabels:
+      app: api-app
+  replicas: 6                
+                  
